@@ -7,7 +7,6 @@ console.log(window.location.href)
 
 <template>
 <div>
-<h1><a href="#/about">About</a></h1>
-    <router-view/>
+<h1>about</h1>
 </div>
 </template>

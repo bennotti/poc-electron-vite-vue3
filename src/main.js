@@ -1,6 +1,8 @@
 const { app, BrowserWindow, dialog, ipcMain } = require("electron");
 const path = require("path");
 
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
 function createWindow() {
   const mainWin = new BrowserWindow({
     resizable: false,
@@ -19,7 +21,8 @@ function createWindow() {
   });
   mainWin.webContents.openDevTools();
   mainWin.setAlwaysOnTop(true, 'screen');
-  mainWin.loadFile("dist/index.html");
+  // mainWin.loadFile("dist/index.html");
+  mainWin.loadURL(`file://${__dirname}/dist/index.html`);
   mainWin.once('ready-to-show', () => {
     mainWin.show();
   });
